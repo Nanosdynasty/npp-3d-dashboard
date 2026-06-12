@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A standalone 3D dashboard inspired by the National Power Portal capacity map dashboard."
+    />
+    <title>NPP 3D Power Dashboard</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="power-scene" aria-label="3D India power dashboard scene"></canvas>
+
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">NPP</span>
+          <div>
+            <h1>National Power Portal</h1>
+            <p>3D Capacity Map Dashboard</p>
+          </div>
+        </div>
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#scene-panel">Dashboard</a>
+          <a href="#energy-panel">Energy Types</a>
+          <a href="#history-panel">Historical Data</a>
+          <a href="#about-panel">About</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="metrics" aria-label="National power metrics">
+          <article>
+            <span>Installed Capacity</span>
+            <strong id="metric-capacity">0</strong>
+            <em>MW</em>
+          </article>
+          <article>
+            <span>Daily Generation</span>
+            <strong id="metric-generation">0</strong>
+            <em>MU</em>
+          </article>
+          <article>
+            <span>Transmission</span>
+            <strong id="metric-transmission">0</strong>
+            <em>ckM</em>
+          </article>
+          <article>
+            <span>Transformation</span>
+            <strong id="metric-transform">0</strong>
+            <em>MVA</em>
+          </article>
+        </section>
+
+        <section class="scene-panel" id="scene-panel" aria-label="3D power map controls">
+          <div class="scene-title">
+            <p>All India</p>
+            <h2 id="region-title">National Load View</h2>
+          </div>
+          <div class="filters" role="group" aria-label="Region filter">
+            <button class="active" data-region="all">All India</button>
+            <button data-region="Northern">Northern</button>
+            <button data-region="Western">Western</button>
+            <button data-region="Southern">Southern</button>
+            <button data-region="Eastern">Eastern</button>
+            <button data-region="North Eastern">North Eastern</button>
+          </div>
+        </section>
+
+        <aside class="side-rail">
+          <section class="panel" id="energy-panel" aria-label="Energy types">
+            <div class="panel-heading">
+              <p>Energy Types</p>
+              <h2>Capacity Mix</h2>
+            </div>
+            <div id="energy-list" class="energy-list"></div>
+          </section>
+
+          <section class="panel" id="history-panel" aria-label="Historical data">
+            <div class="panel-heading">
+              <p>Historical Data</p>
+              <h2>Growth of Installed Capacity</h2>
+            </div>
+            <div id="history-chart" class="history-chart"></div>
+          </section>
+
+          <section class="panel compact" id="about-panel" aria-label="Dashboard notes">
+            <p>Content inspired by the public National Power Portal dashboard structure. Data in this standalone demo is static sample data for deployment.</p>
+          </section>
+        </aside>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
